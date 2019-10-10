@@ -28,7 +28,7 @@
     <p>1 から 100 までの数字を当ててみて！10 回以内に当てられるでしょうか。選んだ数字が大きいか小さいかを表示します。</p>
 
     <div class="form">
-      <label for="guessField">数字を入力してください： </label><input type="text" id="guessField" class="guessField">
+      <label for="guessField">数字を入力してください： </label><input type="text" id="guessField" class="guessField" onkeydown="enter();">
       <input type="submit" value="予想を入力" class="guessSubmit">
     </div>
 
@@ -105,6 +105,10 @@
       }
       //ボタン押下した時にcheckGuess()関数を実行する
       guessSubmit.addEventListener('click',checkGuess);
+      function enter(){
+        if(window.event.keyCode==13)checkGuess();
+      }
+
       
       /*
       1.guessFieldとguessSubmitを無効に設定する。入力できない、書けない。
